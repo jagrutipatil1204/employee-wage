@@ -1,29 +1,41 @@
 import java.util.Random;
 
 public class Main {
-    public static void main(String args[])
-    {
-        int FULL_TIME = 1;
-        final int PART_TIME = 1;
-        //int FULL_TIME = 2;
-        final int WAGE_PER_HR = 20;
-        int empType = (int) (Math.random() * 100) % 2;
-        //int empType = (int) (Math.random() * 100) % 3;
-        int workingHours = 0;
-        if (empType == FULL_TIME)
-        {
-            System.out.println("Employee is Present");
-            System.out.println("Employee is Present Full time");
-            workingHours = 8;
-        } else if (empType == PART_TIME)
-        {
-            System.out.println("Employee is Present Part time");
-            workingHours = 4;
-        } else
-        {
-            System.out.println("Employee is Absent");
+    public static void main(String[] args) {
+            int wagePerHour = 20;
+
+            int attendance = (int) ((Math.random() * 10) % 2);
+            int partAttendance = (int) ((Math.random() * 10) % 2);
+            if (attendance == 0) {
+                System.out.println("Regular Employee is Present");
+                int wage = 20 * 8;
+                System.out.println("Daily Wage of Regular Employee : " + wage);
+            } else {
+                System.out.println("Regular Employee is Absent");
+                System.out.println("Daily wage of Regular Employee : 0");
+                switch (attendance) {
+                    case 0:
+                        System.out.println("Regular Employee is Present");
+                        int wage = 20 * 8;
+                        System.out.println("Daily Wage of Regular Employee : " + wage);
+                        break;
+                    default:
+                        System.out.println("Regular Employee is Absent");
+                        System.out.println("Daily wage of Regular Employee : 0");
+                }
+            }
+
+            if (partAttendance == 0) {
+                switch (partAttendance) {
+                    case 0:
+                        System.out.println("Part Time Employee is Present");
+                        int partWage = 20 * 8;
+                        System.out.println("Daily Wage of Part Time Employee : " + partWage);
+                }}
+            else
+            {
+
+                System.out.println("Part Time Employee is Absent");
+                System.out.println("Daily wage of Part Time Employee : 0");}
         }
-        int wage = workingHours * WAGE_PER_HR;
-        System.out.println("Employee Daily Wage is " + wage);
-    }
 }
