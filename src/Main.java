@@ -1,23 +1,29 @@
 import java.util.Random;
 
 public class Main {
-    public static void main(String[] args)
+    public static void main(String args[])
     {
-        int isPresent = 0;
-        int isAbsent =1;
-        int dailySalary;
-        int workHours;
-        int salaryPerhours=20;
-        int checkAttendence = (int)((Math.random()*10)%2);
-        if (checkAttendence==isPresent){
-            System.out.println("Employee is present");
-            workHours=8;
-        }
-        else{
+        int FULL_TIME = 1;
+        final int PART_TIME = 1;
+        //int FULL_TIME = 2;
+        final int WAGE_PER_HR = 20;
+        int empType = (int) (Math.random() * 100) % 2;
+        //int empType = (int) (Math.random() * 100) % 3;
+        int workingHours = 0;
+        if (empType == FULL_TIME)
+        {
+            System.out.println("Employee is Present");
+            System.out.println("Employee is Present Full time");
+            workingHours = 8;
+        } else if (empType == PART_TIME)
+        {
+            System.out.println("Employee is Present Part time");
+            workingHours = 4;
+        } else
+        {
             System.out.println("Employee is Absent");
-            workHours=0;
         }
-        dailySalary=workHours*salaryPerhours;
-        System.out.println("daily Salary is " + dailySalary);
+        int wage = workingHours * WAGE_PER_HR;
+        System.out.println("Employee Daily Wage is " + wage);
     }
 }
