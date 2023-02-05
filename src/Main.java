@@ -1,41 +1,58 @@
 import java.util.Random;
 
 public class Main {
-    public static void main(String[] args) {
-            int wagePerHour = 20;
 
-            int attendance = (int) ((Math.random() * 10) % 2);
-            int partAttendance = (int) ((Math.random() * 10) % 2);
-            if (attendance == 0) {
-                System.out.println("Regular Employee is Present");
-                int wage = 20 * 8;
-                System.out.println("Daily Wage of Regular Employee : " + wage);
-            } else {
-                System.out.println("Regular Employee is Absent");
-                System.out.println("Daily wage of Regular Employee : 0");
-                switch (attendance) {
-                    case 0:
-                        System.out.println("Regular Employee is Present");
-                        int wage = 20 * 8;
-                        System.out.println("Daily Wage of Regular Employee : " + wage);
+        private static int workingHrs;
+        //private static Object i;
+        public static void main(String args[])
+        {
+            final int PART_TIME = 1;
+            final int FULL_TIME = 2;
+            final int WAGE_PER_HR = 20;
+            final int WORKING_DAYS = 20;
+            final int MAX_WORKING_DAYS = 20;
+            final int MAX_WORKING_HRS = 100;
+            int totalWage = 0;
+            for (int day = 1; day <= WORKING_DAYS; day++) {
+            }
+            System.out.printf("%5s     %5s     %5s     %5s\n", "Day", "Workinghrs", "Wage", "Total working hrs");
+            for (int day = 1, totalWorkingHrs = 0; day <= MAX_WORKING_DAYS
+                    && totalWorkingHrs < MAX_WORKING_HRS; day++, totalWorkingHrs += workingHrs)
+            {
+                int empType = (int) (Math.random() * 100) % 3;
+                int workingHours =0;
+                switch (empType)
+                {
+                    case FULL_TIME:
+                        workingHours = 8;
+                        break;
+                    case PART_TIME:
+                        workingHours = 4;
                         break;
                     default:
-                        System.out.println("Regular Employee is Absent");
-                        System.out.println("Daily wage of Regular Employee : 0");
+
+                        // int Duplicate_2 = 0;
+                        //int getDuplicate2 = 0;
+                        //case getDuplicate2 FULL_TIME:
+                        //  workingHrs = 8;
+                        //break;
+                        //case PART_TIME_2:
+                        //  workingHrs = 4;
+                        //break;
+                        //default_2:
+                        workingHrs = 0;
+                        break;
                 }
+                int wage = workingHours * WAGE_PER_HR;
+                System.out.println("Day " + day + " wage is:" + wage);
+                // int wage = workingHrs * WAGE_PER_HR;
+                totalWage += wage;
+                System.out.printf("%5d       %5d      %5d      %5d\n", day, workingHrs, wage, totalWorkingHrs + workingHrs);
             }
-
-            if (partAttendance == 0) {
-                switch (partAttendance) {
-                    case 0:
-                        System.out.println("Part Time Employee is Present");
-                        int partWage = 20 * 8;
-                        System.out.println("Daily Wage of Part Time Employee : " + partWage);
-                }}
-            else
-            {
-
-                System.out.println("Part Time Employee is Absent");
-                System.out.println("Daily wage of Part Time Employee : 0");}
+            System.out.println("Total wage for a month is " + totalWage);
+            System.out.println("Total wage for a month is " + totalWage);
         }
-}
+        private static int getDuplicate2(int Duplicate_2) {
+            return Duplicate_2;
+        }
+    }
